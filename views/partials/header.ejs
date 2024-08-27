@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name='robots' content='noindex, nofollow' />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>
+        <%= pageTitle %> - Sweep Trade
+    </title>
+    <!-- Metas-->
+    <meta name="title" content="Sweep Trade - Digital Contract Trading Platform">
+    <meta name="description"
+        content="Distinguished Global Enterprise Innovating Currency Solutions for Both Retail and Corporate Partners. Empowering Clients to Satisfy Their Complete Currency Needs.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
+
+    <!--CSS Files -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orange.css">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+    <!-- Animate Css -->
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+
+
+    <!-- Live Style Switcher - demo only -->
+    <link rel="alternate stylesheet" type="text/css" title="orange" href="css/skins/orange.css" />
+    <link rel="alternate stylesheet" type="text/css" title="green" href="css/skins/green.css" />
+    <link rel="alternate stylesheet" type="text/css" title="blue" href="css/skins/blue.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleswitcher.css" />
+
+    <!-- Template JS Files -->
+    <script src="js/modernizr.js"></script>
+
+</head>
+
+<body>
+    <!-- Preloader Starts --->
+    <div id="mb_loader">
+        <div id="ring"><img src="images/logo.png" class="scaleup">
+            <span id="sp"></span>
+        </div>
+    </div>
+    <!--Preloader Ends -->
+
+    <!-- Wrapper Starts -->
+    <div class="wrapper">
+        <!-- Header Starts -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo Starts -->
+                    <div class="main-logo col-xs-12 col-md-3 col-md-2 col-lg-2 hidden-xs">
+                        <a href="/">
+                            <img id="logo" class="img-responsive" src="images/logo.png" alt="logo"
+                                style="max-width:100px">
+                        </a>
+                    </div>
+                    <!-- Logo Ends -->
+                    <!-- Statistics Starts -->
+                    <div class="col-md-7 col-lg-7">
+
+
+                    </div>
+                    <!-- Statistics Ends -->
+                    <!-- User Sign In/Sign Up Starts -->
+                    <div class="col-md-3 col-lg-3">
+                        <ul class="unstyled user">
+                            <li class="sign-in"><a href="/signup" class="btn btn-primary"><i
+                                        class="fas fa-sign-in-alt"></i>&nbsp;Register</a></li>
+                            <li class="sign-up"><a href="/login" class="btn btn-primary"><i
+                                        class="fa fa-user"></i>&nbsp;Login</a></li>
+                            <li>
+                                <div id='google_translate_element'></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- User Sign In/Sign Up Ends -->
+                </div>
+            </div>
+            <!-- Navigation Menu Starts -->
+            <nav class="site-navigation navigation" id="site-navigation">
+                <div class="container">
+                    <div class="site-nav-inner">
+                        <!-- Logo For ONLY Mobile display Starts -->
+                        <a class="logo-mobile" href="/">
+                            <img id="logo-mobile" class="img-responsive" src="images/logo.png" alt="Home Logo"
+                                maxWidth="100">
+                        </a>
+                        <!-- Logo For ONLY Mobile display Ends -->
+                        <!-- Toggle Icon for Mobile Starts -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Toggle Icon for Mobile Ends -->
+                        <div class="collapse navbar-collapse navbar-responsive-collapse">
+                            <!-- Main Menu Starts -->
+                            <ul class="nav navbar-nav">
+                                <li class="<%= page === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
+                                <li class="<%= page === 'about' ? 'active' : '' %>"><a href="/about">About Us</a></li>
+                                <li class="<%= page === 'plans' ? 'active' : '' %>"><a href="/#plans">Plans</a></li>
+                                <li class="<%= page === 'faq' ? 'active' : '' %>"><a href="/faq">FAQs</a></li>
+                                <li class="<%= page === 'contact' ? 'active' : '' %>"><a href="/contact">Contact</a>
+                                </li>
+                            </ul>
+                            <!-- Main Menu Ends -->
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <div class="container" style="width: 100%;padding: 0;">
+                <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                    src="https://s.tradingview.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22title%22%3A%22Nasdaq%20100%22%7D%2C%7B%22proName%22%3A%22FX_IDC%3AEURUSD%22%2C%22title%22%3A%22EUR%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%2C%22title%22%3A%22BTC%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3AETHUSD%22%2C%22title%22%3A%22ETH%2FUSD%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22regular%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22apexpocketoption.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22apexpocketoption.com%2F%22%7D"
+                    style="box-sizing: border-box; display: block; height: 46px; width: 100%;"></iframe>
+
+            </div>
+            <!-- Navigation Menu Ends -->
+        </header>
+        <!-- Header Ends -->

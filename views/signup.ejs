@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags  -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+  <title>Register Now | Sweep Trade</title>
+  <!-- Metas-->
+  <meta name="title" content="Sweep Trade - Digital Contract Trading Platform">
+  <meta name="description"
+    content="Distinguished Global Enterprise Innovating Currency Solutions for Both Retail and Corporate Partners. Empowering Clients to Satisfy Their Complete Currency Needs.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- CSS Assets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/app2.css" />
+  <style>
+    /* Basic styling for the pop-up */
+    .popup {
+      visibility: hidden;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    .popup.visible {
+      visibility: visible;
+    }
+
+    .py-4 {
+      padding-bottom: 1rem;
+      padding-top: 1rem
+    }
+  </style>
+
+  <!-- Javascript Assets -->
+  <script src="js/appreg.js" defer></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css"
+    integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"
+    integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css'>
+  <link rel="stylesheet" href="css/countrystyle.css">
+
+</head>
+
+<body x-data class="is-header-blur" x-bind="$store.global.documentBody">
+  <!-- App preloader-->
+  <!--<div
+      class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
+    >
+      <div class="app-preloader-inner relative inline-block h-48 w-48"></div>
+    </div>-->
+
+  <!-- Page Wrapper -->
+  <div id="root" class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900">
+    <div class="fixed top-0 hidden p-6 lg:block lg:px-12">
+      <a href="#" class="flex items-center space-x-2">
+        <img class="h-12" src="images/logo.png" alt="logo" />
+        <p class="text-xl font-semibold  text-slate-700 dark:text-navy-100">
+          Sweep Trade
+        </p>
+      </a>
+    </div>
+    <div class="hidden w-full place-items-center lg:grid">
+      <div class="w-full max-w-lg p-6">
+        <img class="w-full" x-show="!$store.global.isDarkModeEnabled" src="images/Mobile login-pana.svg" alt="image" />
+        <!-- <img
+            class="w-full"
+            x-show="$store.global.isDarkModeEnabled"
+            src="images/Mobile login-pana.svg"
+            alt="image"
+          /> -->
+      </div>
+    </div>
+    <main class="flex w-full flex-col items-center bg-white dark:bg-navy-700 lg:max-w-md">
+      <div class="flex w-full max-w-sm grow flex-col justify-center p-5">
+        <div class="text-center">
+          <center><img class="" src="images/logo.png" alt="logo" style="height:60px" /></center>
+          <div class="mt-4">
+            <h2 class="text-2xl font-semibold text-slate-600 dark:text-navy-100">
+              Welcome To Sweep Trade
+            </h2>
+            <p class="text-slate-400 dark:text-navy-300">
+              Please Register To Continue
+            </p>
+          </div>
+        </div>
+
+
+        <div class="my-7 flex items-center space-x-3">
+          <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
+          <p class="text-tiny+ ">Join more than 7,500 Investors!</p>
+
+          <div class="h-px flex-1 bg-slate-200 dark:bg-navy-500"></div>
+        </div>
+        <form id="signup-form">
+          <div class="mt-2 space-y-4">
+
+            <div class="grid grid-cols-2 gap-4">
+
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="First Name" type="text" name="firstName" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 11.75a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5zM18 20.25a6.75 6.75 0 00-12 0" />
+                    </svg>
+                  </span>
+
+
+                </span>
+              </label>
+
+              <label class="block">
+                <span></span>
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Last Name" type="text" name="lastName" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 11.75a4.25 4.25 0 100-8.5 4.25 4.25 0 000 8.5zM18 20.25a6.75 6.75 0 00-12 0" />
+                    </svg>
+                  </span>
+
+
+                </span>
+              </label>
+
+
+
+
+            </div>
+
+
+
+            <div class="grid grid-cols-1 gap-4">
+              <input type="hidden" name="referralCode" value="<%= referralCode %>">
+
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Email Address" type="email" name="email" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+
+
+
+
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+
+
+
+              <label class="block">
+
+                <select
+                  class="form-select mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
+                  required name="country">
+                  <option value disabled selected>Select Country</option>
+                  <option value="Afganistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Anguilla">Anguilla</option>
+                  <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Aruba">Aruba</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bermuda">Bermuda</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bonaire">Bonaire</option>
+                  <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                  <option value="Brunei">Brunei</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Canary Islands">Canary Islands</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Cayman Islands">Cayman Islands</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Channel Islands">Channel Islands</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Cocos Island">Cocos Island</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Cook Islands">Cook Islands</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Cote DIvoire">Cote DIvoire</option>
+                  <option value="Croatia">Croatia</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Curaco">Curacao</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="East Timor">East Timor</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Falkland Islands">Falkland Islands</option>
+                  <option value="Faroe Islands">Faroe Islands</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="French Guiana">French Guiana</option>
+                  <option value="French Polynesia">French Polynesia</option>
+                  <option value="French Southern Ter">French Southern Ter</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Gibraltar">Gibraltar</option>
+                  <option value="Great Britain">Great Britain</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Greenland">Greenland</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="India">India</option>
+                  <option value="Iran">Iran</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Isle of Man">Isle of Man</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Korea North">Korea North</option>
+                  <option value="Korea Sout">Korea South</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Laos">Laos</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macau">Macau</option>
+                  <option value="Macedonia">Macedonia</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Midway Islands">Midway Islands</option>
+                  <option value="Moldova">Moldova</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Nambia">Nambia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherland Antilles">Netherland Antilles</option>
+                  <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                  <option value="Nevis">Nevis</option>
+                  <option value="New Caledonia">New Caledonia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Norfolk Island">Norfolk Island</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau Island">Palau Island</option>
+                  <option value="Palestine">Palestine</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Phillipines">Philippines</option>
+                  <option value="Pitcairn Island">Pitcairn Island</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Republic of Montenegro">Republic of Montenegro</option>
+                  <option value="Republic of Serbia">Republic of Serbia</option>
+                  <option value="Reunion">Reunion</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="St Barthelemy">St Barthelemy</option>
+                  <option value="St Eustatius">St Eustatius</option>
+                  <option value="St Helena">St Helena</option>
+                  <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                  <option value="St Lucia">St Lucia</option>
+                  <option value="St Maarten">St Maarten</option>
+                  <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                  <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                  <option value="Saipan">Saipan</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="Samoa American">Samoa American</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra Leone">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syria</option>
+                  <option value="Tahiti">Tahiti</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tokelau">Tokelau</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Erimates">United Arab Emirates</option>
+                  <option value="United States of America">United States of America</option>
+                  <option value="Uraguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Vatican City State">Vatican City State</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                  <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                  <option value="Wake Island">Wake Island</option>
+                  <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Zaire">Zaire</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+              </label>
+
+
+
+
+
+            </div>
+
+
+            <div class="grid grid-cols-1 gap-4">
+
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Address" type="text" name="address" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 10.5c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM12 1.5C7.857 1.5 4.5 4.857 4.5 9c0 4.143 4.073 9.34 7.5 13.5 3.427-4.16 7.5-9.357 7.5-13.5 0-4.143-3.357-7.5-7.5-7.5zM12 20.5s-5.5-6.054-5.5-11.5c0-3.033 2.467-5.5 5.5-5.5 3.033 0 5.5 2.467 5.5 5.5 0 5.446-5.5 11.5-5.5 11.5z" />
+                    </svg>
+                  </span>
+
+
+                </span>
+              </label>
+
+
+
+
+
+            </div>
+
+
+            <div class="grid grid-cols-2 gap-4">
+
+              <link rel="stylesheet" href="css/tellInput.css" />
+              <link rel="stylesheet" href="css/demo.css" />
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <div class="form-group">
+                    <input type="text" id="phone"
+                      class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                      placeholder="Phone" name="phone" required>
+                  </div>
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 5h2a2 2 0 012 2v3c0 1.105-.895 2-2 2H3a2 2 0 01-2-2V7c0-1.105.895-2 2-2zm2 1H3a1 1 0 00-1 1v3c0 .552.448 1 1 1h2a1 1 0 001-1V7a1 1 0 00-1-1zm4.795 7.38a15.978 15.978 0 005.47 5.47l2.024-2.023a1 1 0 011.2-.196c.845.397 1.81.622 2.768.622.364 0 .715-.02 1.053-.06a2.001 2.001 0 011.542 3.272c-.785.78-1.685 1.418-2.68 1.915-2.216 1.096-4.734 1.758-7.33 1.758-2.994 0-5.928-.91-8.379-2.579A15.943 15.943 0 011 14.345a16.09 16.09 0 01-.56-1.757 1.997 1.997 0 01.619-1.901l2.024-2.023a1 1 0 011.198-.196c.847.397 1.814.622 2.775.622.36 0 .709-.02 1.047-.06a2 2 0 013.11-1.302l1.942 1.942z" />
+                    </svg>
+                  </span>
+
+                </span>
+              </label>
+              <!-- <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script> -->
+
+
+              <label class="block">
+
+                <select
+                  class="form-select mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
+                  required name="gender">
+                  <option value disabled selected>Select Gender</option>
+                  <option value="male"> Male </option>
+                  <option value="female"> Female </option>
+                </select>
+              </label>
+
+
+
+
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Password" type="password" name="password" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Repeat Password" type="password" name="confirmPassword" required />
+                  <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+
+
+
+
+              <label class="block">
+
+                <span class="relative mt-1.5 flex">
+                  <input
+                    class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                    placeholder="Referral Code" type="text" id="referralCode" name="ref" />
+                  <!-- <span
+                    class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent"
+                    style="color: #2cccc9">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-colors duration-200" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </span> -->
+                </span>
+              </label>
+
+
+            </div>
+
+
+
+
+            <div class="mt-4 flex items-center space-x-2">
+
+              <p>
+                By registering, you agree to the Sweep Trade Terms of Service
+
+              </p>
+            </div>
+            <button
+              class="btn mt-10 h-10 w-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90"
+              type="submit" style="background:#2cccc9;color:white">
+              Create Account
+            </button>
+
+          </div>
+        </form>
+
+
+
+        <div class="mt-4 text-center text-xs+">
+          <p class="line-clamp-1">
+            <span>Already have an account? </span>
+            <a class="text-primary transition-colors hover:text-primary-focus dark:text-accent-light dark:hover:text-accent"
+              href="/login">Login</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="popup"
+    class="popup relative w-full max-w-lg origin-top rounded-lg bg-white transition-all duration-300 dark:bg-navy-700">
+    <p id="popup-message"></p>
+    <button
+      class="btn mt-10 h-10 w-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90"
+      style="background:#2cccc9;color:white" onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      const password = formData.get('password');
+      const confirmPassword = formData.get('confirmPassword');
+
+      if (password.length < 8) {
+        showPopup('Password must be at least 8 characters long.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showPopup('Passwords do not match.');
+        return;
+      }
+
+      fetch('/signup', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.redirectUrl) {
+            showPopup(data.message);
+            setTimeout(() => {
+              window.location.href = data.redirectUrl;
+            }, 3000);  // Redirect after 3 seconds
+          } else {
+            showPopup(data.message);
+          }
+        })
+        .catch(error => {
+          showPopup('Registration Failed!');
+          console.error('Error:', error);
+        });
+    });
+
+    function showPopup(message) {
+      document.getElementById('popup-message').innerText = message;
+      document.getElementById('popup').classList.add('visible');
+    }
+
+    function closePopup() {
+      document.getElementById('popup').classList.remove('visible');
+    }
+  </script>
+
+
+  <script>
+    // Function to get query parameters from the URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Get the referral code from the URL
+    const referralCode = getQueryParam('ref');
+
+    // If there is a referral code in the URL, set it in the input field
+    if (referralCode) {
+      document.getElementById('referralCode').value = referralCode;
+    }
+  </script>
+
+</body>
+
+</html>

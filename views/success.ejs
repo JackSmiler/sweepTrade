@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Status</title>
+    <style>
+        /* Basic styling for the pop-up */
+        .popup {
+            visibility: hidden;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .popup.visible {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup <%= message ? 'visible' : '' %>">
+        <p><%= message %></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.querySelector('.popup').classList.remove('visible');
+        }
+
+        // Automatically close the pop-up after a few seconds
+        setTimeout(closePopup, 5000);
+    </script>
+</body>
+</html>

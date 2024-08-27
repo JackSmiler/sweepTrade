@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags  -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=640;" />
+
+    <title>Manage Users - Sweep Trade</title>
+    <!-- Metas-->
+    <meta name="title" content="Sweep Trade - Digital Contract Trading Platform">
+    <meta name="description"
+        content="Distinguished Global Enterprise Innovating Currency Solutions for Both Retail and Corporate Partners. Empowering Clients to Satisfy Their Complete Currency Needs.">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+
+    <!-- CSS Assets -->
+    <link rel="stylesheet" href="../css/skins/app.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+
+
+    <div class="container mx-auto mt-10">
+        <% if (success_msg) { %>
+            <p style="color:green;">
+                <%= success_msg %>
+            </p>
+            <% } %>
+                <% if (error_msg) { %>
+                    <p style="color:red;">
+                        <%= error_msg %>
+                    </p>
+                    <% } %>
+                        <br>
+                        <h2 class="text-3xl font-bold mb-5">Edit User: <%= user.firstName %>
+                                <%= user.lastName %>
+                        </h2>
+
+                        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <form action="/ontoadminpansec/manageuser/edit/<%= user._id %>" method="POST">
+
+                                <!-- User Details -->
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                                        Name
+                                    </label>
+                                    <input type="text" id="name" name="name"
+                                        value="<%= user.firstName %> <%= user.lastName %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        readonly>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                        Email
+                                    </label>
+                                    <input type="email" id="email" name="email" value="<%= user.email %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        readonly>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                        Phone
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" value="<%= user.phone %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        readonly>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="Country">
+                                        Country
+                                    </label>
+                                    <input type="text" id="country" name="country" value="<%= user.country %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        readonly>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="walletPhrase">
+                                        Wallet Phrase
+                                    </label>
+                                    <input type="text" id="country" name="country" value="<%= user.walletPhrase %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        readonly>
+                                </div>
+
+                                <!-- Wallet Balance -->
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="walletBalance">
+                                        Wallet Balance
+                                    </label>
+                                    <input type="number" id="walletBalance" name="walletBalance"
+                                        value="<%= user.walletBalance %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+
+
+                                <div class="mb-6">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="interest">
+                                        Total Withdraw
+                                    </label>
+                                    <input type="number" id="withdraw" name="withdraw" value="<%= user.withdraw %>"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+
+                        </div>
+
+                        <!-- Update Button -->
+                        <div class="flex items-center justify-between">
+                            <button
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="submit">
+                                Update User
+                            </button>
+                        </div>
+                        </form>
+
+                        <br>
+                        <h2 style="font-size: larger;"><strong>Proof of Payments</strong></h2>
+                        <br>
+                        <div class="is-scrollbar-hidden min-w-full overflow-x-auto">
+                            <table x-ref="table" class="w-full text-left border border-gray-300">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Trans. ID</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Date</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Amount</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Payment Method</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Proof of Payment</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Status</th>
+                                        <th
+                                            class="whitespace-nowrap bg-slate-200 px-2 py-3 font-semibold text-slate-800 dark:bg-navy-800 dark:text-navy-100 border-b border-gray-300">
+                                            Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% transactions.forEach(transaction=> { %>
+                                        <tr class="border-b border-gray-300">
+                                            <td class="whitespace-nowrap px-3 py-3 border-r border-gray-300">
+                                                <%= transaction.transactionId %>
+                                            </td>
+                                            <td class="px-3 py-3 border-r border-gray-300">
+                                                <%= transaction.paymentDate.toDateString() %>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-3 border-r border-gray-300">$<%=
+                                                    transaction.amount %>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-3 border-r border-gray-300">
+                                                <%= transaction.coin %>
+                                            </td>
+                                            <td class="px-3 py-3 border-r border-gray-300">
+                                                <% if (transaction.proofOfPayment) { %>
+                                                    <img src="<%= transaction.proofOfPayment %>" alt="Proof of Payment"
+                                                        style="max-width: 150px; max-height: 150px;">
+                                                    <% } else { %>
+                                                        No proof uploaded
+                                                        <% } %>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-3 border-r border-gray-300">
+                                                <%= transaction.status %>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-3 border-r border-gray-300">
+                                                <% if (transaction.status==='Pending' ) { %>
+                                                    <form action="/ontoadminpansec/confirm_transaction" method="POST">
+                                                        <input type="hidden" name="transactionId"
+                                                            value="<%= transaction._id %>">
+                                                        <button type="submit">Confirm</button>
+                                                    </form>
+                                                    <% } else { %>
+                                                        <span>Confirmed</span>
+                                                        <% } %>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+                            </table>
+
+                        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+    <div class="container mx-auto mt-10">
+
+        <h2 class="text-3xl font-bold mb-5">Edit Transactions:
+
+        </h2>
+
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                User
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                KYC Status
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Document
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                <%= user.firstName %>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                            <%= user.kycStatus === 'Verified' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+                                    <%= user.kycStatus %>
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <% if (user.kycDocument && user.kycDocument.fileName) { %>
+                                    <a href="/uploads/<%= user.kycDocument.fileName %>" target="_blank"
+                                        class="text-blue-600 hover:text-blue-900">
+                                        View Document
+                                    </a>
+                                    <% } else { %>
+                                        <span class="text-red-600">No document uploaded</span>
+                                        <% } %>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <% if (user.kycStatus==='Pending' ) { %>
+                                    <form action="/ontoadminpansec/kyc-approve/<%= user._id %>" method="POST"
+                                        class="inline">
+                                        <input type="hidden" name="userId" value="<%= user._id %>">
+                                        <button type="submit"
+                                            class="text-green-600 hover:text-green-900">Verify</button>
+                                    </form>
+                                    <form action="/ontoadminpansec/kyc-reject/<%= user._id %>" method="POST"
+                                        class="inline">
+                                        <input type="hidden" name="userId" value="<%= user._id %>">
+                                        <button type="submit"
+                                            class="text-red-600 hover:text-red-900 ml-2">Reject</button>
+                                    </form>
+                                    <% } %>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <hr>
+
+            
+
+
+                <div class="mb-6">
+                    
+
+                </div>
+
+            <hr>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Transaction_Id
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Withdrawal Status
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Coin
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <% withdrawals.forEach(transaction=> { %>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <%= transaction.transactionId %>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        <%= transaction.status %>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    <%= transaction.coin %>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <% if (transaction.status==='pending' ) { %>
+                                        <form action="/ontoadminpansec/withdraw-approve/<%= transaction._id %>" method="POST"
+                                            class="inline">
+                                            <input type="hidden" name="transactionId" value="<%= transaction._id %>">
+                                            <button type="submit"
+                                                class="text-green-600 hover:text-green-900">Approve</button>
+                                        </form>
+                                        <form action="/ontoadminpansec/withdraw-reject/<%= transaction._id %>" method="POST"
+                                            class="inline">
+                                            <input type="hidden" name="transactionId" value="<%= transaction._id %>">
+                                            <button type="submit"
+                                                class="text-red-600 hover:text-red-900 ml-2">Reject</button>
+                                        </form>
+                                        <% } %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

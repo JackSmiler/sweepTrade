@@ -1,0 +1,93 @@
+<%- include('partials/header') %>
+    <!-- Banner Area Starts -->
+    <section class="banner-area"
+        style="background: url(images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg);background-size: cover;background-position: center center;background-repeat: no-repeat;">
+        <div class="banner-overlay">
+            <div class="banner-text text-center">
+                <div class="container">
+                    <!-- Section Title Starts -->
+                    <div class="row text-center">
+                        <div class="col-xs-12">
+                            <!-- Title Starts -->
+                            <h2 class="title-head">Get in <span>touch</span></h2>
+                            <!-- Title Ends -->
+
+                        </div>
+                    </div>
+                    <!-- Section Title Ends -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area Ends -->
+    <!-- Contact Section Starts -->
+    <section class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 contact-form">
+                    <h3 class="col-xs-12">Feel at liberty to contact us at your convenience</h3>
+                    <p class="col-xs-12">Do you have inquiries or require assistance? Engage in live chat with us or
+                        send an email. Our dedicated support team is ready to promptly address your questions and
+                        provide solutions.</p>
+                    <!-- Contact Form Starts -->
+                    <form class="form-contact" method="post" action="">
+                        <!-- Input Field Starts -->
+                        <div class="form-group col-md-6">
+                            <input class="form-control" name="firstname" id="firstname" placeholder="FIRST NAME"
+                                type="text" required>
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Input Field Starts -->
+                        <div class="form-group col-md-6">
+                            <input class="form-control" name="lastname" id="lastname" placeholder="LAST NAME"
+                                type="text" required>
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Input Field Starts -->
+                        <div class="form-group col-md-6">
+                            <input class="form-control" name="email" id="email" placeholder="EMAIL" type="email"
+                                required>
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Input Field Starts -->
+                        <div class="form-group col-md-6">
+                            <input class="form-control" name="subjectt" id="subject" placeholder="SUBJECT" type="text"
+                                required>
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Input Field Starts -->
+                        <div class="form-group col-xs-12">
+                            <textarea class="form-control" id="message" name="message" placeholder="MESSAGE"
+                                required></textarea>
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Submit Form Button Starts -->
+                        <div class="form-group col-xs-12 col-sm-4">
+                            <button class="btn btn-primary btn-contact" name="submit" type="submit">send
+                                message</button>
+                        </div>
+
+                        <div>
+                            <p class="success" style="color: green;font-weight: 700;padding: 5px;text-align: center;">
+                            </p>
+                            <p class="failed" style="color: red;font-weight: 700;padding: 5px;text-align: center;"> </p>
+                        </div>
+                        <!-- Submit Form Button Ends -->
+                        <!-- Form Submit Message Starts --
+                    <div class="col-xs-12 text-center output_message_holder d-none">
+        <p class="output_message">
+
+                        </p>
+                    </div>
+                     Form Submit Message Ends -->
+                    </form>
+                    <!-- Contact Form Ends -->
+                </div>
+
+                <!-- Contact Widget Ends -->
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section Ends -->
+
+    <%- include('partials/footer') %>

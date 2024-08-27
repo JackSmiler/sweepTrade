@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags  -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=640;" />
+
+    <title>All Investments - Sweep Trade</title>
+    <!-- Metas-->
+    <meta name="title" content="Sweep Trade - Digital Contract Trading Platform">
+    <meta name="description"
+        content="Distinguished Global Enterprise Innovating Currency Solutions for Both Retail and Corporate Partners. Empowering Clients to Satisfy Their Complete Currency Needs.">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+
+    <!-- CSS Assets -->
+    <link rel="stylesheet" href="../css/skins/app.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Javascript Assets -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.6/dist/cdn.min.js" defer></script>
+    <script src="../js/skins/app.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css"
+        integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"
+        integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body x-data class="is-header-blur is-sidebar-open" x-bind="$store.global.documentBody">
+    <!-- App preloader-->
+    <!-- <div class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900">
+        <div class="app-preloader-inner relative inline-block h-48 w-48"></div>
+    </div> -->
+
+    <!-- Page Wrapper -->
+    <div id="root" class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900">
+        <!-- Sidebar -->
+        <div class="sidebar ">
+            <!-- Main Sidebar -->
+            <div class="main-sidebar">
+                <div
+                    class="flex h-full w-full flex-col items-center border-r border-slate-150 bg-white dark:border-navy-700 dark:bg-navy-800">
+                    <!-- Application Logo -->
+                    <div class="flex pt-4">
+                        <a href="/">
+                            <img class="h-9 w-11 transition-transform duration-500 ease-in-out hover:rotate-[360deg]"
+                                src="../images/logo.png" alt="logo" />
+                        </a>
+                    </div>
+
+                    <!-- Main Sections Links -->
+                    <div class="is-scrollbar-hidden flex grow flex-col space-y-4 overflow-y-auto pt-6">
+                        <!-- Dashobards -->
+                        <a href="/user/dashboard"
+                            class="flex h-11  items-center justify-center rounded-lg bg-primary/10 outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:bg-navy-600 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
+                            x-tooltip.placement.right="'Dashboards'">
+                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 14.0585C5 13.0494 5 12.5448 5.22166 12.1141C5.44333 11.6833 5.8539 11.3901 6.67505 10.8035L10.8375 7.83034C11.3989 7.42938 11.6795 7.2289 12 7.2289C12.3205 7.2289 12.6011 7.42938 13.1625 7.83034L17.325 10.8035C18.1461 11.3901 18.5567 11.6833 18.7783 12.1141C19 12.5448 19 13.0494 19 14.0585V19C19 19.9428 19 20.4142 18.7071 20.7071C18.4142 21 17.9428 21 17 21H7C6.05719 21 5.58579 21 5.29289 20.7071C5 20.4142 5 19.9428 5 19V14.0585Z"
+                                    fill-opacity="0.3" class="fill-primary dark:fill-accent" />
+                                <path
+                                    d="M3 12.3866C3 12.6535 3 12.7869 3.0841 12.8281C3.16819 12.8692 3.27352 12.7873 3.48418 12.6234L10.7721 6.95502C11.362 6.49625 11.6569 6.26686 12 6.26686C12.3431 6.26686 12.638 6.49625 13.2279 6.95502L20.5158 12.6234C20.7265 12.7873 20.8318 12.8692 20.9159 12.8281C21 12.7869 21 12.6535 21 12.3866V11.9782C21 11.4978 21 11.2576 20.8983 11.0497C20.7966 10.8418 20.607 10.6944 20.2279 10.3995L13.2279 4.95502C12.638 4.49625 12.3431 4.26686 12 4.26686C11.6569 4.26686 11.362 4.49625 10.7721 4.95502L3.77212 10.3995C3.39295 10.6944 3.20337 10.8418 3.10168 11.0497C3 11.2576 3 11.4978 3 11.9782V12.3866Z"
+                                    class="fill-primary dark:fill-accent" />
+                                <path
+                                    d="M12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17V20.85C9.5 20.9328 9.56716 21 9.65 21H14.35C14.4328 21 14.5 20.9328 14.5 20.85V17C14.5 15.8954 13.6046 15 12.5 15Z"
+                                    class="fill-primary dark:fill-accent" />
+                                <rect x="16" y="5" width="2" height="4" rx="0.5"
+                                    class="fill-primary dark:fill-accent" />
+                            </svg>
+                        </a>
+
+
+                        <a href="/user/investment"
+                            class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                            x-tooltip.placement.right="'Investments'">
+                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.85714 3H4.14286C3.51167 3 3 3.51167 3 4.14286V9.85714C3 10.4883 3.51167 11 4.14286 11H9.85714C10.4883 11 11 10.4883 11 9.85714V4.14286C11 3.51167 10.4883 3 9.85714 3Z"
+                                    class="fill-slate-500 dark:fill-navy-200" />
+                                <path
+                                    d="M9.85714 12.8999H4.14286C3.51167 12.8999 3 13.4116 3 14.0428V19.757C3 20.3882 3.51167 20.8999 4.14286 20.8999H9.85714C10.4883 20.8999 11 20.3882 11 19.757V14.0428C11 13.4116 10.4883 12.8999 9.85714 12.8999Z"
+                                    class="fill-slate-500 dark:fill-navy-200" fill-opacity="0.3" />
+                                <path
+                                    d="M19.757 3H14.0428C13.4116 3 12.8999 3.51167 12.8999 4.14286V9.85714C12.8999 10.4883 13.4116 11 14.0428 11H19.757C20.3882 11 20.8999 10.4883 20.8999 9.85714V4.14286C20.8999 3.51167 20.3882 3 19.757 3Z"
+                                    class="fill-slate-500 dark:fill-navy-200" fill-opacity="0.3" />
+                                <path
+                                    d="M19.757 12.8999H14.0428C13.4116 12.8999 12.8999 13.4116 12.8999 14.0428V19.757C12.8999 20.3882 13.4116 20.8999 14.0428 20.8999H19.757C20.3882 20.8999 20.8999 20.3882 20.8999 19.757V14.0428C20.8999 13.4116 20.3882 12.8999 19.757 12.8999Z"
+                                    class="fill-slate-500 dark:fill-navy-200" fill-opacity="0.3" />
+                            </svg>
+                        </a>
+
+
+                    </div>
+
+                    <!-- Bottom Links -->
+                    <div class="flex flex-col items-center space-y-3 py-3">
+                        <!-- Settings -->
+                        <a href="/user/logout"
+                            class="flex h-11 w-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Panel -->
+            <div class="sidebar-panel">
+                <div class="flex h-full grow flex-col bg-white pl-[var(--main-sidebar-width)] dark:bg-navy-750">
+                    <!-- Sidebar Panel Header -->
+                    <div class="flex h-18 w-full items-center justify-between pl-4 pr-1">
+                        <p class="btn h-8 px-4 text-xs+ font-medium  bg-info/10 font-medium text-info hover:bg-info/20 focus:bg-info/20 active:bg-info/25"
+                            style="color:#2cccc9;background:#F8FAFC;font-weight:900">
+                            Sweep Trade
+                        </p>
+                        <button @click="$store.global.isSidebarExpanded = false"
+                            class="btn h-7 w-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Sidebar Panel Body -->
+                    <div x-data="{expandedItem:null}" class="h-[calc(100%-4.5rem)] overflow-x-hidden pb-6"
+                        x-init="$el._x_simplebar = new SimpleBar($el);">
+                        <ul class="flex flex-1 flex-col px-4 font-inter">
+                            <li>
+                                <a x-data="navLink" href="/user/dashboard"
+                                    :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                    class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a x-data="navLink" href="/user/profile"
+                                    :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                    class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                                    My Profile
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+                        <ul class="flex flex-1 flex-col px-4 font-inter">
+                            <li x-data="accordionItem('menu-item-1')">
+                                <a :class="expanded && 'text-slate-800 font-semibold dark:text-navy-50'"
+                                    @click="expanded = !expanded"
+                                    class="flex items-center justify-between py-2 text-xs+ tracking-wide text-slate-500 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                                    href="/user/investment">
+                                    <span>Investments</span>
+
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+
+
+                        <ul class="flex flex-1 flex-col px-4 font-inter">
+
+
+
+
+
+
+
+                            <li x-data="accordionItem('menu-item-2')">
+                                <a :class="expanded && 'text-slate-800 font-semibold dark:text-navy-50'"
+                                    @click="expanded = !expanded"
+                                    class="flex items-center justify-between py-2 text-xs+ tracking-wide text-slate-500 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                                    href="javascript:void(0);">
+                                    <span>Deposit</span>
+                                    <svg :class="expanded && 'rotate-90'" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4 text-slate-400 transition-transform ease-in-out" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                                <ul x-collapse x-show="expanded">
+                                    <li>
+                                        <a x-data="navLink" href="/user/deposit"
+                                            :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                            class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40">
+                                                </div>
+                                                <span>Make Deposits </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a x-data="navLink" href="/user/transaction"
+                                            :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                            class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40">
+                                                </div>
+                                                <span>Deposit History</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li x-data="accordionItem('menu-item-3')">
+                                <a :class="expanded && 'text-slate-800 font-semibold dark:text-navy-50'"
+                                    @click="expanded = !expanded"
+                                    class="flex items-center justify-between py-2 text-xs+ tracking-wide text-slate-500 outline-none transition-[color,padding-left] duration-300 ease-in-out hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50"
+                                    href="javascript:void(0);">
+                                    <span>Withdrawals</span>
+                                    <svg :class="expanded && 'rotate-90'" xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4 text-slate-400 transition-transform ease-in-out" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                                <ul x-collapse x-show="expanded">
+                                    <li>
+                                        <a x-data="navLink" href="/user/withdrawal"
+                                            :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                            class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40">
+                                                </div>
+                                                <span>Make Withdrawals </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a x-data="navLink" href="/user/transaction"
+                                            :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                            class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                            <div class="flex items-center space-x-2">
+                                                <div class="h-1.5 w-1.5 rounded-full border border-current opacity-40">
+                                                </div>
+                                                <span>Withdrawal History</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                        <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+                        <ul class="flex flex-1 flex-col px-4 font-inter">
+
+                            <li>
+                                <a x-data="navLink" href="/user/logout"
+                                    :class=" ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-500 hover:text-slate-800 dark:text-navy-200 dark:hover:text-navy-50'"
+                                    class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                                    Log-Out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- App Header Wrapper-->
+        <nav class="header print:hidden">
+            <!-- App Header  -->
+            <div class="header-container relative flex w-full bg-white dark:bg-navy-750 print:hidden">
+                <!-- Header Items -->
+                <div class="flex w-full items-center justify-between">
+                    <!-- Left: Sidebar Toggle Button -->
+                    <div class="h-7 w-7">
+                        <button
+                            class="menu-toggle ml-0.5 flex h-7 w-7 flex-col justify-center space-y-1.5 text-primary outline-none focus:outline-none dark:text-accent-light/80"
+                            :class="$store.global.isSidebarExpanded && 'active'"
+                            @click="$store.global.isSidebarExpanded = !$store.global.isSidebarExpanded">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+
+
+                    <!-- Right: Header buttons -->
+                    <div class="-mr-1.5 flex items-center space-x-2">
+                        <div style="margin-right:-60px;" id='google_translate_element'></div>
+                        <style type="text/css">
+                            /*google translate Dropdown */
+
+                            #google_translate_element select {
+                                background: #f6edfd;
+                                color: #383ffa;
+                                border: none;
+                                border-radius: 3px;
+                                padding: 6px 8px
+                            }
+
+                            /*google translate link | logo */
+                            .goog-logo-link {
+                                display: none !important;
+                            }
+
+                            .goog-te-gadget {
+                                color: transparent !important;
+                            }
+
+                            /* google translate banner-frame */
+
+                            .goog-te-banner-frame {
+                                display: none !important;
+                            }
+
+                            #goog-gt-tt,
+                            .goog-te-balloon-frame {
+                                display: none !important;
+                            }
+
+                            .goog-text-highlight {
+                                background: none !important;
+                                box-shadow: none !important;
+                            }
+
+                            body {
+                                top: 0 !important;
+                            }
+
+                            @media(max-width:680px) {
+                                /*  #google_translate_element{display:none;position:fixed;left:8px;bottom:30px;*/
+                            }
+                            
+                        </style>
+
+                        <script>
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en',
+                                    autoDisplay: 'true',
+                                    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script
+                            src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
+
+
+                        <!-- Dark Mode Toggle -->
+                        <button @click="$store.global.isDarkModeEnabled = !$store.global.isDarkModeEnabled"
+                            class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                            <svg x-show="$store.global.isDarkModeEnabled"
+                                x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
+                                x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static"
+                                class="h-6 w-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M11.75 3.412a.818.818 0 01-.07.917 6.332 6.332 0 00-1.4 3.971c0 3.564 2.98 6.494 6.706 6.494a6.86 6.86 0 002.856-.617.818.818 0 011.1 1.047C19.593 18.614 16.218 21 12.283 21 7.18 21 3 16.973 3 11.956c0-4.563 3.46-8.31 7.925-8.948a.818.818 0 01.826.404z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" x-show="!$store.global.isDarkModeEnabled"
+                                x-transition:enter="transition-transform duration-200 ease-out absolute origin-top"
+                                x-transition:enter-start="scale-75" x-transition:enter-end="scale-100 static"
+                                class="h-6 w-6 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <!-- Monochrome Mode Toggle -->
+                        <button @click="$store.global.isMonochromeModeEnabled = !$store.global.isMonochromeModeEnabled"
+                            class="btn h-8 w-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                            <i
+                                class="fa-solid fa-palette bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-lg font-semibold text-transparent"></i>
+                        </button>
+                        <!-- Metas-->
+                        <meta name="title" content="Sweep Trade - Digital Contract Trading Platform">
+                        <meta name="description"
+                            content="Distinguished Global Enterprise Innovating Currency Solutions for Both Retail and Corporate Partners. Empowering Clients to Satisfy Their Complete Currency Needs.">
+
+
+
+                        <link rel="icon" type="image/png" href="../images/logo.png" />
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Searchbar -->
+
+
+
+
+        <!-- Main Content Wrapper -->
+        <main class="main-content w-full px-[var(--margin-x)] pb-8">
+            <% if (success_msg) { %>
+                <p style="color:green;">
+                    <%= success_msg %>
+                </p>
+                <% } %>
+                    <% if (error_msg) { %>
+                        <p style="color:red;">
+                            <%= error_msg %>
+                        </p>
+                        <% } %>
+
+                        <div class="investment-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <% investments.forEach(investment => { %>
+                              <div class="investment-item bg-white p-4 rounded-lg shadow-md">
+                                <h3 class="text-lg font-semibold mb-2"><%= investment.packageType %> Plan</h3>
+                                <p class="text-gray-600">Amount: $<%= investment.amount.toFixed(2) %></p>
+                                <p class="text-gray-600">Daily Profit: $<%= investment.dailyProfit.toFixed(2) %></p>
+                                <p class="text-gray-600">Status: 
+                                  <span class="<%= investment.status === 'expired' ? 'text-red-500' : 'text-green-500' %>">
+                                    <%= investment.status === 'expired' ? 'Expired' : 'Active' %>
+                                  </span>
+                                </p>
+                                <p class="text-gray-600">Expiry Date: 
+                                  <%= investment.expiryDate ? investment.expiryDate.toDateString() : 'No Expiry Date' %>
+                                </p>
+                              </div>
+                            <% }) %>
+                          </div>
+                          
+
+        </main>
+    </div>
+
+
+    <!-- 
+        This is a place for Alpine.js Teleport feature 
+        @see https://alpinejs.dev/directives/teleport
+      -->
+    <div id="x-teleport-target"></div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => Alpine.start());
+    </script>
+</body>
+
+</html>
