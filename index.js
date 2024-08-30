@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   email: String,
   country: String,
-  address: String,
+  address: String, 
   phone: String,
   gender: String,
   password: String,
@@ -682,12 +682,12 @@ app.post('/user/investment', checkAuthenticated, async (req, res) => {
   const investmentAmount = parseFloat(amount); // Ensure the amount is treated as a number
 
   const investmentPackages = {
-    Basic: { min: 500, max: 5000, profit: 1.5 }, // 1.5% daily
-    Pro: { min: 15000, max: 90000, profit: 2.0 }, // 2% daily
-    Premium: { min: 30000, max: 2500000, profit: 2.5 }, // 2.5% daily
-    Retirement: { min: 60000, max: 100000000, profit: 3.0 }, // 3% daily
-    Dynasty: { min: 269000, max: 2684000, profit: 3.5 }, // 3.5% daily
-    Annual: { min: 2687883, max: 26878960, profit: 4.0 } // 4% daily
+    Basic: { min: 500, max: 5000, profit: 15.0 }, // 1.5% daily
+    Pro: { min: 15000, max: 90000, profit: 8.0 }, // 2% daily
+    Premium: { min: 30000, max: 2500000, profit: 8.0 }, // 2.5% daily
+    Retirement: { min: 60000, max: 100000000, profit: 8.0 }, // 3% daily
+    Dynasty: { min: 269000, max: 2684000, profit: 8.0 }, // 3.5% daily
+    Annual: { min: 2687883, max: 26878960, profit: 8.0 } // 4% daily
   };
 
   const packageDurations = {
