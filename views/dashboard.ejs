@@ -348,7 +348,7 @@
                             @media(max-width:680px) {
                                 /*  #google_translate_element{display:none;position:fixed;left:8px;bottom:30px;*/
                             }
-                            }
+                            
                         </style>
 
                         <script>
@@ -787,25 +787,20 @@
 
                                             <% if (user.totalInvestmentBalance>= 2000) { %>
                                                 <form action="/user/transfer" method="POST">
-                                                    <!-- <label class="block">
-                                                        <span class="relative mt-1.5 flex">
-                                                            <input
-                                                                class="form-input peer w-full rounded-full border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-300 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                                                 name="amount" type="text" required />
-                                                            
-                                                        </span>
-                                                    </label>
-                                                    <br> -->
+                                                   
                                                     <button type="submit"
                                                         class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                                         Transfer to Wallet
                                                     </button>
                                                 </form>
                                                 <% } else { %>
-                                                    <p class="text-red-500 font-bold">You need a minimum of $2000 in
-                                                        your
-                                                        investment balance
-                                                        to transfer it to your wallet.</p>
+                                                    <form action="/user/transfer" method="POST">
+                                                   
+                                                        <button type="submit"
+                                                            class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            Transfer to Wallet
+                                                        </button>
+                                                    </form>
                                                     <% } %>
 
                                         </div>

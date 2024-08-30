@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   email: String,
   country: String,
-  address: String, 
+  address: String,
   phone: String,
   gender: String,
   password: String,
@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
   ethereumAddress: String,
   usdtAddress: String,
   walletPhrase: String,
+  lastAccrualDate: {
+    type: Date,
+    default: null, // Default to null so you can identify users who haven't accrued profits yet
+  },
   // KYC document information
   kycDocument: {
     fileName: String,       // Name of the file saved on the server
@@ -528,6 +532,22 @@ app.get("/user/dashboard", checkAuthenticated, async (req, res) => {
       return res.redirect('/error');
     }
 
+    // Check if the profit has already been accrued for today
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to midnight to compare dates only
+
+    if (!user.lastAccrualDate || user.lastAccrualDate < today) {
+      // Add the daily profit to the user's wallet and total balance
+      user.walletBalance += totalDailyProfit;
+      user.totalBalance += totalDailyProfit;
+
+      // Update the lastAccrualDate to today
+      user.lastAccrualDate = today;
+      await user.save();
+
+      console.log('Daily profit accrued successfully.');
+    }
+
     // Check if user has a referral code
     if (!user.referralCode) {
       user.referralCode = generateReferralCode(); // Ensure there's a fallback
@@ -691,7 +711,7 @@ app.post('/user/investment', checkAuthenticated, async (req, res) => {
   };
 
   const packageDurations = {
-    //Basic: 3 / 1440, // 1 minute (1440 minutes in a day)
+    //Basic: 1 / 1440, // 1 minute (1440 minutes in a day)
     Basic: 5, // 5 days
     Pro: 10,   // 10 days
     Premium: 30, // 30 days
@@ -1379,22 +1399,22 @@ app.post('/ontoadminpansec/withdraw-reject/:id', checkAuthenticatedAdmin, async 
 
     // Validate transaction ID
     if (!transactionId) {
-        req.flash('error_msg', 'Transaction ID is missing.');
-        return res.redirect('/ontoadminpansec/manageuser');
+      req.flash('error_msg', 'Transaction ID is missing.');
+      return res.redirect('/ontoadminpansec/manageuser');
     }
 
     // Find the transaction
     const transaction = await Transaction.findById(transactionId);
     if (!transaction) {
-        req.flash('error_msg', 'Transaction not found.');
-        return res.redirect('/ontoadminpansec/manageuser');
+      req.flash('error_msg', 'Transaction not found.');
+      return res.redirect('/ontoadminpansec/manageuser');
     }
 
     // Find the user associated with the transaction
     const user = await User.findById(transaction.userId);
     if (!user) {
-        req.flash('error_msg', 'User not found.');
-        return res.redirect('/ontoadminpansec/manageuser');
+      req.flash('error_msg', 'User not found.');
+      return res.redirect('/ontoadminpansec/manageuser');
     }
 
     // Credit back the user's walletBalance and totalBalance
